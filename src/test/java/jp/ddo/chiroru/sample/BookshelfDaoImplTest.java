@@ -27,13 +27,18 @@ public class BookshelfDaoImplTest {
         dao.regist(b);
         List<Bookshelf> l = dao.findAll();
         String findByIdKey = null;
-        //assertThat(l.size(), is(1));
+        assertThat(l.size(), is(1));
         for (Bookshelf r : l) {
             assertThat(r.getName(), is ("name 1"));
             assertThat(r.getDescription(), is ("description 1"));
-            findByIdKey = r.getId();
-            dao.remove(findByIdKey);
+            findByIdKey = r.get_id();
+            assertThat(findByIdKey, is(notNullValue()));
+            r.setName("updated");
+            int saveCount = dao.save(r);
+            assertThat(saveCount, is(1));
         }
-        //dao.remove(findByIdKey);
+
+        int removeCount = dao.remove(findByIdKey);
+        assertThat(removeCount, is(1));
     }
 }

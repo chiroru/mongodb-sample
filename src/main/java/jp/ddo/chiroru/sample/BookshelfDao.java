@@ -1,16 +1,8 @@
 package jp.ddo.chiroru.sample;
 
-import java.util.List;
+import jp.ddo.chiroru.mongoutils.MongoDao;
 
-public interface BookshelfDao {
+public interface BookshelfDao
+        extends MongoDao<Bookshelf> {
 
-    Bookshelf findById(String id);
-    
-    List<Bookshelf> findAll();
-    
-    int regist(Bookshelf bookshelf);
-    
-    int save(Bookshelf bookshelf);
-    
-    int remove(String id);
 }

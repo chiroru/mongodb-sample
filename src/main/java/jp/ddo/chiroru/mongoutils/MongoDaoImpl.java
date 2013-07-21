@@ -10,31 +10,23 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
-import com.mongodb.MongoClient;
-import com.mongodb.WriteConcern;
 import com.mongodb.WriteResult;
 
 public class MongoDaoImpl<T>
         implements MongoDao<T> {
 
-    private final static String HOST = "127.0.0.1";
-    private final static int PORT = 27017;
-    private final static String DB_NAME = "sample";
-
-    protected MongoClient client;
-    protected DB db;
+    private static final MongoManager manager = MongoManager.getInstance();
+    protected final static DB db = manager.getDb();
     protected DBCollection collection;
     protected Class<T> clazz;
 
     public MongoDaoImpl(String collectionName, Class<T> clazz)
             throws UnknownHostException {
-        this.client = new MongoClient(HOST, PORT);
-        this.client.setWriteConcern(WriteConcern.SAFE);
-        this.db = client.getDB(DB_NAME);
+        // collectionはプールから取得される 
         this.collection = db.getCollection(collectionName);
         this.clazz = clazz;
     }
-    
+
     @Override
     public T findById(String id) {
         DBObject o = null;

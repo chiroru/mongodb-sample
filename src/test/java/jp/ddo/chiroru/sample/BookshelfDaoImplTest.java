@@ -25,6 +25,7 @@ public class BookshelfDaoImplTest {
         for (Bookshelf b : rl) {
             dao.remove(b.get_id());
         }
+        dao = null;
     }
 
     @Test

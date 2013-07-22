@@ -53,6 +53,11 @@ public class MongoManager {
         }
     }
 
+    // for testing.
+    public static void startup() {
+        instance = new MongoManager();
+    }
+    
     public static MongoManager getInstance() {
         return instance;
     }

@@ -12,6 +12,7 @@
     <logback-version>1.0.1</logback-version>
     <slf4j-version>1.6.4</slf4j-version>
     <mongo-java-driver-version>2.11.2</mongo-java-driver-version>
+    <de.flapdoodle.embedmongo.de.flapdoodle.embedmongo-version>1.18</de.flapdoodle.embedmongo.de.flapdoodle.embedmongo-version>
   </properties>
 
   <dependencies>
@@ -38,7 +39,13 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>${junit-version}</version>
-      <scope>compile</scope>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>de.flapdoodle.embedmongo</groupId>
+      <artifactId>de.flapdoodle.embedmongo</artifactId>
+      <version>${de.flapdoodle.embedmongo.de.flapdoodle.embedmongo-version}</version>
+      <scope>test</scope>
     </dependency>
     <!-- for Logging -->
     <dependency>

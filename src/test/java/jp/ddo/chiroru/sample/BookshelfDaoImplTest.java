@@ -5,6 +5,7 @@ import static org.junit.Assert.assertThat;
 
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,6 +17,14 @@ public class BookshelfDaoImplTest {
     public void setUp()
             throws Exception {
         dao = new BookshelfDaoImpl();
+    }
+
+    @After
+    public void tearDown() {
+        List<Bookshelf> rl  = dao.findAll();
+        for (Bookshelf b : rl) {
+            dao.remove(b.get_id());
+        }
     }
 
     @Test
@@ -40,5 +49,26 @@ public class BookshelfDaoImplTest {
 
         int removeCount = dao.remove(findByIdKey);
         assertThat(removeCount, is(1));
+    }
+
+    @Test
+    public void 部分検索() {
+        for (int i = 0; i< 100; i++) {
+            Bookshelf b = new Bookshelf();
+            b.setName("name " + i);
+            b.setDescription("description " + i);
+            dao.regist(b);
+        }
+        List<Bookshelf> l  = dao.findAll(10, 10);
+        int count = 10;
+        for (Bookshelf b : l) {
+            assertThat(b.getName(), is ("name " + count));
+            assertThat(b.getDescription(), is ("description " + count));
+            ++count;
+        }
+        List<Bookshelf> rl  = dao.findAll();
+        for (Bookshelf b : rl) {
+            dao.remove(b.get_id());
+        }
     }
 }

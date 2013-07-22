@@ -8,9 +8,13 @@ public interface MongoDao<T> {
 
     List<T> findAll();
 
+    List<T> findAll(int numToSkip , int batchSize);
+
     int regist(T domain);
 
     int save(T domain);
 
     int remove(String id);
+
+    long getCount();
 }

@@ -45,6 +45,18 @@ public class MongoDaoImpl<T>
     }
 
     @Override
+    public List<T> findAll(int numToSkip , int batchSize) {
+        List<T> l = new ArrayList<>();
+        DBCursor c = collection.find();
+        c.skip(numToSkip);
+        c.batchSize(batchSize);
+        while (c.hasNext()) {
+            l.add(DBObjectUtils.toDomain(c.next(), clazz));
+        }
+        return l;
+    }
+    
+    @Override
     public int regist(Object domain) {
         WriteResult result = collection.insert(DBObjectUtils.toDBObject(domain));
         return result.getN();
@@ -65,4 +77,8 @@ public class MongoDaoImpl<T>
         return r.getN();
     }
 
+    @Override
+    public long getCount() {
+        return collection.getCount();
+    }
 }

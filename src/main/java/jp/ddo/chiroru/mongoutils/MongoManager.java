@@ -11,6 +11,15 @@ import com.mongodb.MongoClientOptions;
 import com.mongodb.ServerAddress;
 import com.mongodb.WriteConcern;
 
+/**
+ * クライアントのオプションは以下の通り.
+ * <ul>
+ *   <li>Description　: 説明</li>
+ *   <li>ConnectionPerHost : プールするコネクション数</li>
+ *   <li>ThreadsAllowedToBlockForConnectionMultiplier : ConnectionPerHost × ThreadsAllowedToBlockForConnectionMultiplier の数がwait可能なコネクション要求の数</li>
+ * </ul>
+ *
+ */
 public class MongoManager {
 
     private final static String MONGO_PROPERTY_PATH="mongo.properties";
@@ -20,6 +29,7 @@ public class MongoManager {
     private final String DB_NAME;
     private final MongoClient client;
     private final DB db;
+    private final MongoClientOptions options;
 
     private static MongoManager instance = new MongoManager();
 
@@ -30,7 +40,7 @@ public class MongoManager {
             HOST = props.getProperty("host");
             PORT = Integer.valueOf(props.getProperty("port"));
             DB_NAME = props.getProperty("db_name");
-            final MongoClientOptions options = new MongoClientOptions.Builder()
+            options = new MongoClientOptions.Builder()
             .connectionsPerHost(Integer.valueOf(props.getProperty("connections_per_host")))
             .threadsAllowedToBlockForConnectionMultiplier(Integer.valueOf(props.getProperty("connections_per_host")))
             .build();
@@ -65,5 +75,9 @@ public class MongoManager {
         buffer.append("CursorFinalizerEnabled : [" + options.isCursorFinalizerEnabled() + "]\n");
         buffer.append("SocketKeepAlive : [" + options.isSocketKeepAlive() + "]\n");
         System.out.println(buffer.toString());
+    }
+
+    public MongoClientOptions getMongoClientOptions() {
+        return this.options;
     }
 }

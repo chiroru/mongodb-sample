@@ -5,11 +5,17 @@ import static org.junit.Assert.assertThat;
 
 import java.util.List;
 
+import jp.ddo.chiroru.mongoutils.test.MongoResource;
+
 import org.junit.After;
 import org.junit.Before;
+import org.junit.ClassRule;
 import org.junit.Test;
 
 public class BookshelfDaoImplTest {
+
+    @ClassRule
+    public static MongoResource mongo = new MongoResource();
 
     private BookshelfDao dao;
 

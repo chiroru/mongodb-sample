@@ -18,9 +18,14 @@
       <attribute value="jar:file:/C:/Users/shin/.m2/repository/commons-io/commons-io/2.2/commons-io-2.2-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
-  <classpathentry kind="var" path="M2_REPO/de/flapdoodle/embedmongo/de.flapdoodle.embedmongo/1.18/de.flapdoodle.embedmongo-1.18.jar" sourcepath="M2_REPO/de/flapdoodle/embedmongo/de.flapdoodle.embedmongo/1.18/de.flapdoodle.embedmongo-1.18-sources.jar">
+  <classpathentry kind="var" path="M2_REPO/de/flapdoodle/embed/de.flapdoodle.embed.mongo/1.33/de.flapdoodle.embed.mongo-1.33.jar" sourcepath="M2_REPO/de/flapdoodle/embed/de.flapdoodle.embed.mongo/1.33/de.flapdoodle.embed.mongo-1.33-sources.jar">
     <attributes>
-      <attribute value="jar:file:/C:/Users/shin/.m2/repository/de/flapdoodle/embedmongo/de.flapdoodle.embedmongo/1.18/de.flapdoodle.embedmongo-1.18-javadoc.jar!/" name="javadoc_location"/>
+      <attribute value="jar:file:/C:/Users/shin/.m2/repository/de/flapdoodle/embed/de.flapdoodle.embed.mongo/1.33/de.flapdoodle.embed.mongo-1.33-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/de/flapdoodle/embed/de.flapdoodle.embed.process/1.27/de.flapdoodle.embed.process-1.27.jar" sourcepath="M2_REPO/de/flapdoodle/embed/de.flapdoodle.embed.process/1.27/de.flapdoodle.embed.process-1.27-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/C:/Users/shin/.m2/repository/de/flapdoodle/embed/de.flapdoodle.embed.process/1.27/de.flapdoodle.embed.process-1.27-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
   <classpathentry kind="var" path="M2_REPO/com/google/guava/guava/11.0.1/guava-11.0.1.jar" sourcepath="M2_REPO/com/google/guava/guava/11.0.1/guava-11.0.1-sources.jar">

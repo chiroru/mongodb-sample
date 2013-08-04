@@ -47,6 +47,18 @@
       <version>${de.flapdoodle.embedmongo.de.flapdoodle.embed.mongo-version}</version>
       <scope>test</scope>
     </dependency>
+    <!-- for commons -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-cli</artifactId>
+      <version>1.2</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-exec</artifactId>
+      <version>1.1</version>
+    </dependency>
     <!-- for Logging -->
     <dependency>
       <groupId>ch.qos.logback</groupId>
@@ -180,4 +192,12 @@
       </plugin>
     </plugins>
   </reporting>
+
+  <repositories>
+    <repository>
+      <id>chiroru.ddo.jp</id>
+      <name>Chiroru Repository</name>
+      <url>http://192.168.215.15/maven</url>
+    </repository>
+  </repositories>
 </project>
